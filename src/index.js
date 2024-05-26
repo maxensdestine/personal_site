@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import AppEntry from './AppEntry';
+import LandingPage from './pages/LandingPage'
 import reportWebVitals from './reportWebVitals';
+import createTheme from "@mui/material/styles/createTheme";
+import responsiveFontSizes from "@mui/material/styles/responsiveFontSizes";
+import ThemeProvider from "@mui/material/styles/ThemeProvider";
 
+let theme = createTheme();
+theme = responsiveFontSizes(theme);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppEntry />
+    <ThemeProvider theme={theme}>
+      <LandingPage theme={theme} />
+    </ThemeProvider>
   </React.StrictMode>
 );
 
