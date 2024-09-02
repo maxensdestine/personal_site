@@ -1,15 +1,15 @@
 import React from 'react';
+import Bolt from '@mui/icons-material/Bolt';
 import Box from '@mui/material/Box';
+import Business from '@mui/icons-material/Business';
+import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Business from '@mui/icons-material/Business';
 import School from '@mui/icons-material/School';
-import Bolt from '@mui/icons-material/Bolt';
 import Typography from '@mui/material/Typography';
 import { ModeSelector, LanguageSelector } from './SettingsToggleButtonGroup';
 

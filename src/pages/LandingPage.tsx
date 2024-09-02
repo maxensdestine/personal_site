@@ -3,11 +3,9 @@ import Box from "@mui/material/Box"
 import Grid from '@mui/material/Unstable_Grid2';
 import IconButton from "@mui/material/IconButton/IconButton";
 import MenuIcon from '@mui/icons-material/Menu';
-import styled from "@mui/material/styles/styled";
-
-import imgNameBackground from "../images/me_anywhere/coffee_B&W_Cool_3.jpg";
-import TemporaryDrawer from "../components/TemporaryDrawer";
 import NameAndTitle from "./NameAndTitle";
+import styled from "@mui/material/styles/styled";
+import TemporaryDrawer from "../components/TemporaryDrawer";
 
 const Styles = {
     icon: {

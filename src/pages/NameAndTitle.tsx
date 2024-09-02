@@ -1,8 +1,8 @@
 import React from "react";
 import Box from "@mui/material/Box"
 import Grid from '@mui/material/Unstable_Grid2';
-import Typography from "@mui/material/Typography/Typography";
 import styled from "@mui/material/styles/styled";
+import Typography from "@mui/material/Typography/Typography";
 
 import imgNameBackground from "../images/me_anywhere/coffee_B&W_Cool_3.jpg";
 

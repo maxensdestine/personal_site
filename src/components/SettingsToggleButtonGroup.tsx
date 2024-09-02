@@ -1,14 +1,13 @@
 import React from 'react';
+import Anchor from '@mui/icons-material/Anchor';
+import BakeryDining from '@mui/icons-material/BakeryDining';
 import Box from '@mui/material/Box';
+import DarkMode from '@mui/icons-material/DarkMode';
 import LightMode from '@mui/icons-material/LightMode';
 import SettingsBrightness from '@mui/icons-material/SettingsBrightness';
-import DarkMode from '@mui/icons-material/DarkMode';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Typography from '@mui/material/Typography';
-import Anchor from '@mui/icons-material/Anchor';
-import BakeryDining from '@mui/icons-material/BakeryDining';
-
 interface ButtonInfo {
   icon: JSX.Element;
   title: string;
