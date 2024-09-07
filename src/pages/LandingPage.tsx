@@ -2,33 +2,15 @@ import React from "react";
 import Box from "@mui/material/Box"
 import Grid from '@mui/material/Unstable_Grid2';
 import IconButton from "@mui/material/IconButton/IconButton";
-import Typography from "@mui/material/Typography/Typography";
 import MenuIcon from '@mui/icons-material/Menu';
-import TuneIcon from '@mui/icons-material/Tune';
+import NameAndTitle from "./NameAndTitle";
 import styled from "@mui/material/styles/styled";
-
-import imgNameBackground from "../images/me_anywhere/coffee_B&W_Cool_3.jpg";
+import TemporaryDrawer from "../components/TemporaryDrawer";
 
 const Styles = {
     icon: {
         color: '#ffffff',
-        textShadow: '2px 2px grey',
-        fontSize: 36,
-    },
-
-    iconButton: {
-
-    },
-
-    background: {
-        backgroundImage: `url(${imgNameBackground})`,
-        backgroundRepeat: 'repeat',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center top',
-        width: '100vw',
-        height: '100%',
-        minHeight: '100vh',
-        display: 'flex',
+        fontSize: 42,
     }
 };
 
@@ -56,67 +38,20 @@ const RootGrid = styled(Grid)(({ theme }) => ({
     },
 }));
 
-const TypographyName = styled(Typography)({
-    textAlign: 'center',
-    fontFamily: 'initial',
-    fontWeight: 'bold',
-    textShadow: '0px 5px 5px dimGray, 0px 7px 7px #a3a3a3, 0px 9px 9px #a3a3a3',
-    color: 'white',
-    component: 'div',
-});
-
-const strFirstName: String = 'Maxens';
-const strLastName: String = 'Destiné';
-const strJobTitle: String = 'Software Engineer';
-const strAnd: String = '&';
-const strMuchMore: String = 'so much more';
-
-//const [state, setState] = React.useState({left: false});
-
 export default function LandingPage(props): React.JSX.Element {
-    console.log(props.theme);
-    return <Box sx={Styles.background}>
-        <RootGrid
-            container
-            direction='row'
-            justifyContent='space-between'
-            flexGrow='1'>
-            <Grid
-                container
-                direction='column'
-                justifyContent='space-between'>
-                <Grid>
-                    <IconButton sx={Styles.iconButton}>
-                        <MenuIcon sx={Styles.icon} />
-                    </IconButton>
-                </Grid>
-                <Grid>
-                    <IconButton sx={Styles.iconButton}>
-                        <TuneIcon sx={Styles.icon} />
-                    </IconButton>
-                </Grid>
-            </Grid>
-            <Grid
-                container
-                direction='column'
-                justifyContent='space-between'>
-                <Grid marginBottom={2}>
-                    <TypographyName variant='h2'>{strFirstName}</TypographyName>
-                    <TypographyName variant='h2'>{strLastName}</TypographyName>
-                </Grid>
-                <Grid sx={{ display: { xs: 'none', sm: 'none', md: 'none', lg: 'inline' } }}>
-                    <TypographyName variant='h3'>{strJobTitle}</TypographyName>
-                    <TypographyName variant='h4'>{strAnd}</TypographyName>
-                    <TypographyName variant='h4'>{strMuchMore}</TypographyName>
-                </Grid>
-                <Grid sx={{ display: { xs: 'none', sm: 'none', md: 'inline', lg: 'none' } }}>
-                    <TypographyName variant='h4'>{strJobTitle}</TypographyName>
-                    <TypographyName variant='h5'>{strAnd}</TypographyName>
-                    <TypographyName variant='h5'>{strMuchMore}</TypographyName>
-                </Grid>
-                <Grid></Grid>
-                <Grid></Grid>
-            </Grid>
-        </RootGrid>
-    </Box >;
+    const [isOpen, setOpen] = React.useState(false);
+
+    function toggleDrawer(newOpen: boolean): () => void {
+        return () => { setOpen(newOpen) };
+    };
+
+    return (
+    <Box>
+        <TemporaryDrawer isOpen={isOpen} onClose={toggleDrawer(false)}></TemporaryDrawer>
+        <IconButton sx={{mt: '3vh', ml: '4vw', position: 'absolute'}} onClick={toggleDrawer(true)}>
+            <MenuIcon sx={Styles.icon} />
+        </IconButton>
+        <NameAndTitle/>
+    </Box>
+    );
 }
