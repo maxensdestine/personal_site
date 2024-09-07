@@ -23,7 +23,7 @@ const RootGrid = styled(Grid)(({ theme }) => ({
 
     [theme.breakpoints.down('sm')]: {
         paddingInline: 18,
-        paddingTop: 28,
+        paddingTop: 18,
         paddingBottom: 28
     },
     [theme.breakpoints.up('sm')]: {

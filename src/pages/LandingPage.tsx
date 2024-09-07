@@ -48,7 +48,7 @@ export default function LandingPage(props): React.JSX.Element {
     return (
     <Box>
         <TemporaryDrawer isOpen={isOpen} onClose={toggleDrawer(false)}></TemporaryDrawer>
-        <IconButton sx={{mt: 4, ml: 8.5, position: 'absolute'}} onClick={toggleDrawer(true)}>
+        <IconButton sx={{mt: '3vh', ml: '4vw', position: 'absolute'}} onClick={toggleDrawer(true)}>
             <MenuIcon sx={Styles.icon} />
         </IconButton>
         <NameAndTitle/>

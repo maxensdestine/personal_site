@@ -20,9 +20,9 @@ export default function TemporaryDrawer(props): React.JSX.Element {
       role="presentation"
       m={1.5}
     >
-      <Typography sx={{ p: 1, pb: 1, color: 'text.primary' }} variant='h6'>General</Typography>
+      <Typography sx={{ m: 1, mb: 1, color: 'text.primary' }} variant='h6'>General</Typography>
       <Divider />
-      <List sx={{ pb: 8 }} onClick={props.onClose}>
+      <List sx={{ mb: 5 }} onClick={props.onClose}>
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
@@ -48,10 +48,10 @@ export default function TemporaryDrawer(props): React.JSX.Element {
           </ListItemButton>
         </ListItem>
       </List>
-      <Divider />
-      <Typography sx={{ p: 1, color: 'text.primary' }} variant='h6'>Settings</Typography>
-      <Divider />
-      <ModeSelector sx={{ pb: 3, width: '100%' }} />
+      
+      <Typography sx={{ m: 1, color: 'text.primary' }} variant='h6'>Settings</Typography>
+      <Divider sx={{ mb: { xs: 4, sm: 4, md: 0, lg: 0 } }}/>
+      <ModeSelector sx={{ mb: { xs: 4.5, sm: 4.5, md: 1, lg: 1 }, width: '100%' }} />
       <LanguageSelector sx={{ width: '100%' }} />
     </Box>
   );

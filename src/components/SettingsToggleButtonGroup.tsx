@@ -3,11 +3,17 @@ import Anchor from '@mui/icons-material/Anchor';
 import BakeryDining from '@mui/icons-material/BakeryDining';
 import Box from '@mui/material/Box';
 import DarkMode from '@mui/icons-material/DarkMode';
+import FormControl from '@mui/material/FormControl';
+import Grid from '@mui/material/Unstable_Grid2';
+import InputLabel from '@mui/material/InputLabel';
 import LightMode from '@mui/icons-material/LightMode';
+import MenuItem from '@mui/material/MenuItem';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 import SettingsBrightness from '@mui/icons-material/SettingsBrightness';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Typography from '@mui/material/Typography';
+
 interface ButtonInfo {
   icon: JSX.Element;
   title: string;
@@ -31,23 +37,62 @@ interface ToggleSelectorProp {
 function GeneralToggleSelector(properties: ToggleSelectorProp) {
   const info: ToggleGroupInfo = properties.toggleGroupInfo;
   const buttonWidth = 1 / info.buttonInfoList.length;
+  const handleChangeSelect = (event: SelectChangeEvent) => {
+    info.onChange(null, event.target.value);
+  };
   return (
     <Box>
-      <Typography sx={{ p: 1, pt: 3, color: 'text.secondary' }} variant='body2'>{info.title}</Typography>
-      <ToggleButtonGroup
-        value={info.value}
-        exclusive
-        onChange={info.onChange}
-        aria-label={info.ariaLabel}
-        {...properties.props}>
-        {info.buttonInfoList.map((buttonInfo, index) => (
-          <ToggleButton sx={{ width: buttonWidth }} value={buttonInfo.value} aria-label={buttonInfo.ariaLabel} key={index}>
-            {buttonInfo.icon}
-            <Typography sx={{ p: 1 }} variant='overline'>{buttonInfo.title}</Typography>
-          </ToggleButton>
-        ))}
-      </ToggleButtonGroup>
-    </Box>
+      <Box sx={{ display: { xs: 'none', sm: 'none', md: 'inline', lg: 'inline' } }}>
+        <Typography sx={{ m: 1, mt: 3, color: 'text.secondary' }} variant='body2'>{info.title}</Typography>
+        <ToggleButtonGroup
+          value={info.value}
+          exclusive
+          onChange={info.onChange}
+          aria-label={info.ariaLabel}
+          {...properties.props}>
+          {info.buttonInfoList.map((buttonInfo, index) => (
+            <ToggleButton sx={{ width: buttonWidth }}
+            value={buttonInfo.value}
+            aria-label={buttonInfo.ariaLabel}
+            key={index}>
+              {buttonInfo.icon}
+              <Typography sx={{ p: 1 }} variant='overline'>{buttonInfo.title}</Typography>
+            </ToggleButton>
+          ))}
+        </ToggleButtonGroup>
+      </Box>
+      <Box sx={{ display: { xs: 'inline', sm: 'inline', md: 'none', lg: 'none' } }}>
+        <FormControl fullWidth>
+          <InputLabel id={info.title + '-label'}>{info.title}</InputLabel>
+          <Select
+            labelId={info.title + '-label'}
+            id={info.title + '-id'}
+            value={info.value}
+            label={info.title}
+            onChange={handleChangeSelect}
+            aria-label={info.ariaLabel}
+            {...properties.props}>
+            {info.buttonInfoList.map((buttonInfo, index) => (
+              <MenuItem value={buttonInfo.value}
+              key={index}
+              aria-label={buttonInfo.ariaLabel}>
+                <Grid container
+                  direction='row'
+                  columnSpacing={1.4}
+                  alignItems='center'>
+                  <Grid paddingTop={0.7}>
+                    {buttonInfo.icon}
+                  </Grid>
+                  <Grid>
+                    {buttonInfo.title}
+                  </Grid>
+                </Grid>
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
+    </Box >
   );
 }
 
