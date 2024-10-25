@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Anchor from '@mui/icons-material/Anchor';
 import BakeryDining from '@mui/icons-material/BakeryDining';
 import Box from '@mui/material/Box';
@@ -13,6 +13,7 @@ import SettingsBrightness from '@mui/icons-material/SettingsBrightness';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Typography from '@mui/material/Typography';
+import { Appearance, AppearanceContext } from '../components/AppearanceContext';
 
 interface ButtonInfo {
   icon: JSX.Element;
@@ -38,7 +39,15 @@ function GeneralToggleSelector(properties: ToggleSelectorProp) {
   const info: ToggleGroupInfo = properties.toggleGroupInfo;
   const buttonWidth = 1 / info.buttonInfoList.length;
   const handleChangeSelect = (event: SelectChangeEvent) => {
-    info.onChange(null, event.target.value);
+    if (event.target.value)
+      info.onChange(null, event.target.value);
+  };
+  const myOnChange = (
+    event: React.MouseEvent<HTMLElement>,
+    newValue: any | null,
+  ) => {
+    if (newValue)
+      info.onChange(null, newValue);
   };
   return (
     <Box>
@@ -47,14 +56,14 @@ function GeneralToggleSelector(properties: ToggleSelectorProp) {
         <ToggleButtonGroup
           value={info.value}
           exclusive
-          onChange={info.onChange}
+          onChange={myOnChange}
           aria-label={info.ariaLabel}
           {...properties.props}>
           {info.buttonInfoList.map((buttonInfo, index) => (
             <ToggleButton sx={{ width: buttonWidth }}
-            value={buttonInfo.value}
-            aria-label={buttonInfo.ariaLabel}
-            key={index}>
+              value={buttonInfo.value}
+              aria-label={buttonInfo.ariaLabel}
+              key={index}>
               {buttonInfo.icon}
               <Typography sx={{ p: 1 }} variant='overline'>{buttonInfo.title}</Typography>
             </ToggleButton>
@@ -74,8 +83,8 @@ function GeneralToggleSelector(properties: ToggleSelectorProp) {
             {...properties.props}>
             {info.buttonInfoList.map((buttonInfo, index) => (
               <MenuItem value={buttonInfo.value}
-              key={index}
-              aria-label={buttonInfo.ariaLabel}>
+                key={index}
+                aria-label={buttonInfo.ariaLabel}>
                 <Grid container
                   direction='row'
                   columnSpacing={1.4}
@@ -92,21 +101,21 @@ function GeneralToggleSelector(properties: ToggleSelectorProp) {
           </Select>
         </FormControl>
       </Box>
-    </Box >
+    </Box>
   );
 }
 
-export function ModeSelector(props) {
-  const [brightnessMode, setBrightnessMode] = React.useState<string | null>('system');
+export function AppearanceSelector(props) {
+  const appearance = useContext(AppearanceContext);
   const handleBrightnessMode =
     (
       event: React.MouseEvent<HTMLElement>,
-      newBrightnessMode: string | null,
-    ) => { setBrightnessMode(newBrightnessMode); };
+      newBrightnessMode: Appearance | null,
+    ) => { appearance.setValue(newBrightnessMode); };
   const groupInfo: ToggleGroupInfo =
   {
-    title: 'Mode',
-    value: brightnessMode,
+    title: 'Appearance',
+    value: appearance.value,
     onChange: handleBrightnessMode,
     ariaLabel: 'brightness settings',
     buttonInfoList:
@@ -125,7 +134,6 @@ export function ModeSelector(props) {
         }
       ]
   };
-
   return GeneralToggleSelector({ props: props, toggleGroupInfo: groupInfo });
 }
 
