@@ -57,7 +57,7 @@ const TypographyName = styled(Typography)({
 export default function NameAndTitle(props): React.JSX.Element {
   const { t, i18n } = useTranslation();
   const strFirstName: String = 'Maxens';
-  const strLastName: String = 'Destiné ';
+  const strLastName: String = 'Destiné';
   const strJobTitle: String = t('job-title');
   const strAnd: String = '&';
   const strMuchMore: String = t('job-title-2');

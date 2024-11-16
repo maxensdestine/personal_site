@@ -1,6 +1,20 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
+function getDefaultLanguage(): string {
+  const languages = navigator.languages;
+  for (const language of languages) {
+    if (!language || language.length < 2)
+      continue;
+    const lang : string = language.substring(0, 2);
+    if (lang === 'en' || lang === 'fr')
+      return lang;
+  }
+  return "en";
+}
+
+const language: string = getDefaultLanguage();
+
 i18n
   .use(initReactI18next)
   .init({
@@ -46,7 +60,7 @@ i18n
         },
       },
     },
-    lng: "en",
+    lng: language,
     fallbackLng: "en",
   });
 

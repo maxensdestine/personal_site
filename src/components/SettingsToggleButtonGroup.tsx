@@ -138,10 +138,10 @@ export function AppearanceSelector(props) {
 
 export function LanguageSelector(props) {
   const { t, i18n } = useTranslation();
-  const [language, setLanguage] = React.useState<string | null>('en');
+  const [language, setLanguage] = React.useState<string>(i18n.language);
   const handleLanguage = (
     event: React.MouseEvent<HTMLElement>,
-    aLanguage: string | null,
+    aLanguage: string,
   ) => {
     setLanguage(aLanguage);
     i18n.changeLanguage(aLanguage);
@@ -159,7 +159,6 @@ export function LanguageSelector(props) {
         },
         {
           icon: <BakeryDining />, title: 'Français', value: 'fr', ariaLabel: 'Utiliser le français'
-
         }
       ]
   };
