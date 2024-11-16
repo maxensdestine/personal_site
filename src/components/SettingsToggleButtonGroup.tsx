@@ -14,6 +14,8 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Typography from '@mui/material/Typography';
 import { Appearance, AppearanceContext } from '../components/AppearanceContext';
+import { useTranslation } from 'react-i18next';
+import "../translations/Translations";
 
 interface ButtonInfo {
   icon: JSX.Element;
@@ -26,7 +28,6 @@ interface ToggleGroupInfo {
   title: string;
   value: any;
   onChange: (event: React.MouseEvent<HTMLElement>, newValue: any | null,) => void;
-  ariaLabel: string;
   buttonInfoList: Array<ButtonInfo>;
 }
 
@@ -57,7 +58,6 @@ function GeneralToggleSelector(properties: ToggleSelectorProp) {
           value={info.value}
           exclusive
           onChange={myOnChange}
-          aria-label={info.ariaLabel}
           {...properties.props}>
           {info.buttonInfoList.map((buttonInfo, index) => (
             <ToggleButton sx={{ width: buttonWidth }}
@@ -79,7 +79,6 @@ function GeneralToggleSelector(properties: ToggleSelectorProp) {
             value={info.value}
             label={info.title}
             onChange={handleChangeSelect}
-            aria-label={info.ariaLabel}
             {...properties.props}>
             {info.buttonInfoList.map((buttonInfo, index) => (
               <MenuItem value={buttonInfo.value}
@@ -106,6 +105,7 @@ function GeneralToggleSelector(properties: ToggleSelectorProp) {
 }
 
 export function AppearanceSelector(props) {
+  const { t, i18n } = useTranslation();
   const appearance = useContext(AppearanceContext);
   const handleBrightnessMode =
     (
@@ -114,23 +114,22 @@ export function AppearanceSelector(props) {
     ) => { appearance.setValue(newBrightnessMode); };
   const groupInfo: ToggleGroupInfo =
   {
-    title: 'Appearance',
+    title: t('appearance'),
     value: appearance.value,
     onChange: handleBrightnessMode,
-    ariaLabel: 'brightness settings',
     buttonInfoList:
       [
         {
           icon: <LightMode />,
-          title: 'Light', value: 'light', ariaLabel: 'use light mode'
+          title: t('light-mode'), value: 'light', ariaLabel: t('light-mode-al')
         },
         {
           icon: <SettingsBrightness />,
-          title: 'System', value: 'system', ariaLabel: 'use system mode'
+          title: t('system-mode'), value: 'system', ariaLabel: t('system-mode-al')
         },
         {
           icon: <DarkMode />,
-          title: 'Dark', value: 'dark', ariaLabel: 'use dark mode'
+          title: t('dark-mode'), value: 'dark', ariaLabel: t('dark-mode-al')
         }
       ]
   };
@@ -138,27 +137,28 @@ export function AppearanceSelector(props) {
 }
 
 export function LanguageSelector(props) {
-  const [language, setLanguage] = React.useState<string | null>('eng');
+  const { t, i18n } = useTranslation();
+  const [language, setLanguage] = React.useState<string | null>('en');
   const handleLanguage = (
     event: React.MouseEvent<HTMLElement>,
-    newLanguage: string | null,
+    aLanguage: string | null,
   ) => {
-    setLanguage(newLanguage);
+    setLanguage(aLanguage);
+    i18n.changeLanguage(aLanguage);
   };
 
   const groupInfo: ToggleGroupInfo =
   {
-    title: 'Language',
+    title: t('language'),
     value: language,
     onChange: handleLanguage,
-    ariaLabel: 'language settings',
     buttonInfoList:
       [
         {
-          icon: <Anchor />, title: 'English', value: 'eng', ariaLabel: 'use english'
+          icon: <Anchor />, title: 'English', value: 'en', ariaLabel: 'Use english'
         },
         {
-          icon: <BakeryDining />, title: 'Français', value: 'fr', ariaLabel: 'utiliser le français'
+          icon: <BakeryDining />, title: 'Français', value: 'fr', ariaLabel: 'Utiliser le français'
 
         }
       ]
