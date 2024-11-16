@@ -12,16 +12,22 @@ import ListItemText from '@mui/material/ListItemText';
 import School from '@mui/icons-material/School';
 import Typography from '@mui/material/Typography';
 import { AppearanceSelector, LanguageSelector } from './SettingsToggleButtonGroup';
-import { PaletteMode } from "@mui/material";
+import { useTranslation } from 'react-i18next';
+import "../translations/Translations";
 
 export default function TemporaryDrawer(props): React.JSX.Element {
-
+  const { t, i18n } = useTranslation();
+  const generalStr: String = t("general");
+  const experienceStr: String = t("experience");
+  const educationStr: String = t("education");
+  const projectsStr: String = t("projects-interest");
+  const settingsStr: String = t("settings");
   const DrawerList = (
     <Box
       role="presentation"
       m={1.5}
     >
-      <Typography sx={{ m: 1, mb: 1, color: 'text.primary' }} variant='h6'>General</Typography>
+      <Typography sx={{ m: 1, mb: 1, color: 'text.primary' }} variant='h6'>{generalStr}</Typography>
       <Divider />
       <List sx={{ mb: 5 }} onClick={props.onClose}>
         <ListItem disablePadding>
@@ -29,7 +35,7 @@ export default function TemporaryDrawer(props): React.JSX.Element {
             <ListItemIcon>
               <Business />
             </ListItemIcon>
-            <ListItemText primary='Experience' />
+            <ListItemText primary={experienceStr} />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
@@ -37,7 +43,7 @@ export default function TemporaryDrawer(props): React.JSX.Element {
             <ListItemIcon>
               <School />
             </ListItemIcon>
-            <ListItemText primary='Education' />
+            <ListItemText primary={educationStr} />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
@@ -45,12 +51,12 @@ export default function TemporaryDrawer(props): React.JSX.Element {
             <ListItemIcon>
               <AutoAwesome />
             </ListItemIcon>
-            <ListItemText primary='Projects & Interests' />
+            <ListItemText primary={projectsStr} />
           </ListItemButton>
         </ListItem>
       </List>
 
-      <Typography sx={{ m: 1, color: 'text.primary' }} variant='h6'>Settings</Typography>
+      <Typography sx={{ m: 1, color: 'text.primary' }} variant='h6'>{settingsStr}</Typography>
       <Divider sx={{ mb: { xs: 4, sm: 4, md: 0, lg: 0 } }} />
       <AppearanceSelector sx={{ mb: { xs: 4.5, sm: 4.5, md: 1, lg: 1 }, width: '100%' }}/>
       <LanguageSelector sx={{ width: '100%' }} />
