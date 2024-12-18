@@ -4,18 +4,17 @@ import BakeryDining from '@mui/icons-material/BakeryDining';
 import Box from '@mui/material/Box';
 import DarkMode from '@mui/icons-material/DarkMode';
 import FormControl from '@mui/material/FormControl';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import InputLabel from '@mui/material/InputLabel';
 import LightMode from '@mui/icons-material/LightMode';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import SettingsBrightness from '@mui/icons-material/SettingsBrightness';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import Typography from '@mui/material/Typography';
-import { Appearance, AppearanceContext } from '../components/AppearanceContext';
 import { useTranslation } from 'react-i18next';
-import "../translations/Translations";
+
+import { Appearance, AppearanceContext } from './AppearanceContext';
+import { ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
+import '../../translations/Translations';
 
 interface ButtonInfo {
   icon: JSX.Element;
@@ -53,7 +52,7 @@ function GeneralToggleSelector(properties: ToggleSelectorProp) {
   return (
     <Box>
       <Box sx={{ display: { xs: 'none', sm: 'none', md: 'inline', lg: 'inline' } }}>
-        <Typography sx={{ m: 1, mt: 3, color: 'text.secondary' }} variant='body2'>{info.title}</Typography>
+        <Typography sx={{ m: 1, mt: 3 }} variant='body2' color='secondary'>{info.title}</Typography>
         <ToggleButtonGroup
           value={info.value}
           exclusive
@@ -65,7 +64,7 @@ function GeneralToggleSelector(properties: ToggleSelectorProp) {
               aria-label={buttonInfo.ariaLabel}
               key={index}>
               {buttonInfo.icon}
-              <Typography sx={{ p: 1 }} variant='overline'>{buttonInfo.title}</Typography>
+              <Typography sx={{ p: 1 }} variant='overline' color='primary'>{buttonInfo.title}</Typography>
             </ToggleButton>
           ))}
         </ToggleButtonGroup>
@@ -120,15 +119,15 @@ export function AppearanceSelector(props) {
     buttonInfoList:
       [
         {
-          icon: <LightMode />,
+          icon: <LightMode color='primary'/>,
           title: t('light-mode'), value: 'light', ariaLabel: t('light-mode-al')
         },
         {
-          icon: <SettingsBrightness />,
+          icon: <SettingsBrightness color='primary'/>,
           title: t('system-mode'), value: 'system', ariaLabel: t('system-mode-al')
         },
         {
-          icon: <DarkMode />,
+          icon: <DarkMode color='primary'/>,
           title: t('dark-mode'), value: 'dark', ariaLabel: t('dark-mode-al')
         }
       ]
@@ -155,10 +154,10 @@ export function LanguageSelector(props) {
     buttonInfoList:
       [
         {
-          icon: <Anchor />, title: 'English', value: 'en', ariaLabel: 'Use english'
+          icon: <Anchor color='primary'/>, title: 'English', value: 'en', ariaLabel: 'Use english'
         },
         {
-          icon: <BakeryDining />, title: 'Français', value: 'fr', ariaLabel: 'Utiliser le français'
+          icon: <BakeryDining color='primary'/>, title: 'Français', value: 'fr', ariaLabel: 'Utiliser le français'
         }
       ]
   };
