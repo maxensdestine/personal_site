@@ -65,7 +65,7 @@ const Styles = (theme) => ({
     [theme.breakpoints.up('lg')]: {
       paddingTop: '56px',
       flexDirection: 'row',
-      width: '85vw',
+      width: '93vw',
       marginRight: 'auto',
       marginLeft: 'auto',
     },
@@ -120,7 +120,7 @@ const Styles = (theme) => ({
   }
 });
 
-export default function LandingPage(): React.JSX.Element {
+export default function LandingPage(props): React.JSX.Element {
   const { t, i18n } = useTranslation();
   const appearanceContext = useContext(AppearanceContext);
   const [appearance, setAppearance, appearanceRef] = useStateRef<Appearance>(appearanceContext.value);
@@ -193,7 +193,7 @@ export default function LandingPage(): React.JSX.Element {
         main: '#232931'
       },
       secondary: {
-        main: '#5c636e'
+        main: '#494e57'
       },
       background: {
         default: '#ffffff',
@@ -250,14 +250,13 @@ export default function LandingPage(): React.JSX.Element {
   return (
     <AppearanceContext.Provider value={{ value: appearanceRef.current, setValue: setAppearance }}>
       <ThemeProvider theme={theme}>
-        <Box sx={Styles(theme).background} id={backgroundID}>
+        <Box sx={Styles(theme).background} id={backgroundID} {...props}>
           <Box
             id='halo'
             sx={Styles(theme).halo}
             className='mouse-halo'>
           </Box>
-          <TemporaryDrawer isOpen={isOpen} onClose={toggleDrawer(false)}
-            setAppearance={setAppearance}>
+          <TemporaryDrawer isOpen={isOpen} onClose={toggleDrawer(false)}>
           </TemporaryDrawer>
           <Box sx={Styles(theme).iconBox}>
             <IconBox />

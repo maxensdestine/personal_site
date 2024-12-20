@@ -61,6 +61,40 @@ i18n
           'summary-3': 
             'When I’m not programming, I read, work out, and \
             practise archery.',
+          'past-work-date-begin-0': '2023',
+          'past-work-date-end-0': 'present',
+          'past-work-title-0': 'macOS & iOS Developer',
+          'past-work-location-0': 'Druide informatique',
+          'past-work-desc-0':
+            'Augmented the iOS and macOS applications by building a dynamic, \
+            responsive and intuitive user interface. Interacted with a C++ \
+            backend server to convey the relevant data through the application. \
+            Cooperated with other development teams for the creation of new features',
+          'past-work-skills-0': 'Objective-C,Swift,C++',
+          'past-work-link-0': 'https://www.druide.com/en',
+          'past-work-date-begin-1': 'may',
+          'past-work-date-end-1': 'aug 2022',
+          'past-work-title-1': 'Software Engineer Intern',
+          'past-work-location-1': 'O-Possum Solutions',
+          'past-work-desc-1':
+            'Enhanced the user and transaction history display systems by implementing \
+            filtered search. Upgraded a visualization system for sales to allow the \
+            creation of statistics, tables and graphs based on different criteria such \
+            as the date, the payment method (credit card, online, …), etc.',
+          'past-work-skills-1': 'JavaScript,ReactJS,Java,SpringBoot,SQL',
+          'past-work-link-1': 'https://o-possum.com/about-2/?lang=en',
+          'past-work-date-begin-2': 'may',
+          'past-work-date-end-2': 'aug 2021',
+          'past-work-title-2': 'Software Engineer Intern',
+          'past-work-location-2': 'O-Possum Solutions',
+          'past-work-desc-2':
+            'Refined the identity access management to better limit the permissions \
+            of cashiers based on their authority. Implemented a checkout feature to \
+            allow tracking the number of clients present in the center. Increased the \
+            usability of the point of sales application by including relevant \
+            error messages.',
+          'past-work-skills-2': 'Java,SpringBoot,JavaFX',
+          'past-work-link-2': 'https://o-possum.com/about-2/?lang=en',
         },
       },
       fr: {
@@ -106,6 +140,41 @@ i18n
           'summary-3': 
             'À part programmer, je passe mon temps libre à lire, à m’entraîner \
             et à pratiquer l’archerie.',
+          'past-work-date-begin-0': '2023',
+          'past-work-date-end-0': 'présent',
+          'past-work-title-0': 'Développeur macOS & iOS',
+          'past-work-location-0': 'Druide informatique',
+          'past-work-desc-0':
+            'Enrichir les applications iOS et macOS à l’aide d’une interface \
+            utilisateur dynamique, adaptive et intuitive. Interagir avec un \
+            serveur dorsale C++ pour acheminer les informations adéquates par \
+            le biais des applications',
+          'past-work-skills-0': 'Objective-C, Swift, C++',
+          'past-work-link-0': 'https://www.druide.com/fr',
+          'past-work-date-begin-1': 'mai',
+          'past-work-date-end-1': 'août 2022',
+          'past-work-title-1': 'Stagiaire en génie logiciel',
+          'past-work-location-1': 'O-Possum Solutions',
+          'past-work-desc-1':
+            'Enrichir le système d’affichage d’utilisateurs et de transactions en \
+            implémentant des filtres de recherche. Améliorer un système de \
+            visualisation des ventes afin de pouvoir créer des statistiques, des \
+            tables et des graphiques selon différents critères, tels que la date, \
+            le type d’achat (carte de crédit, en ligne, …), etc.',
+          'past-work-skills-1': 'JavaScript,ReactJS,Java,SpringBoot,SQL',
+          'past-work-link-1': 'https://o-possum.com/about-2/?lang=fr',
+          'past-work-date-begin-2': 'mai',
+          'past-work-date-end-2': 'août 2021',
+          'past-work-title-2': 'Stagiaire en génie logiciel',
+          'past-work-location-2': 'O-Possum Solutions',
+          'past-work-desc-2':
+            'Raffiner la gestion des identités des d’accès pour mieux limiter \
+            les caissiers selon leur autorité. Implémenter une fonction de déconnexion \
+            pour permettre le contrôle du nombre de clients présents sur le site. \
+            Augmenter la convivialité du logiciel de point de vente en incluant des \
+            messages d’erreur précis.',
+          'past-work-skills-2': 'Java,SpringBoot,JavaFX',
+          'past-work-link-2': 'https://o-possum.com/about-2/?lang=fr',
         },
       },
     },

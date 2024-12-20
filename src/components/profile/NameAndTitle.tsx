@@ -31,7 +31,7 @@ const Styles = (theme) => ({
   }
 });
 
-export default function NameAndTitle(): React.JSX.Element {
+export default function NameAndTitle(props): React.JSX.Element {
   const { t, i18n } = useTranslation();
   const theme = useTheme();
   const strFirstName: string = 'Maxens';
@@ -42,7 +42,7 @@ export default function NameAndTitle(): React.JSX.Element {
   const image = theme.palette.mode === 'dark' ? ImgCoffeeBW : ImgCoffee;
 
   return (
-    <Box sx={Styles(theme).root}>
+    <Box sx={Styles(theme).root} {...props}>
       <Typography
         fontWeight='bold'
         variant='h3'

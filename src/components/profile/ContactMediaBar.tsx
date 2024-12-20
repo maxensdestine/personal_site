@@ -48,8 +48,12 @@ export default function ContactMediaBar(props) {
   return (
     <Box sx={Styles.root} {...props}>
       {contacts.map((contact, index) => (
-        <a href={contact.link} target="_blank" rel="noreferrer">
-          <IconButton key={index}>
+        <a
+          key={index}
+          href={contact.link}
+          target='_blank'
+          rel='noreferrer'>
+          <IconButton>
             {contact.icon}
           </IconButton>
         </a>

@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 
 export default function Project(props): React.JSX.Element {
   return (
-    <Box>
+    <Box {...props}>
       Lorem ipsum odor amet, consectetuer adipiscing elit. Pellentesque augue vivamus eu dictum blandit quam. Tellus integer nullam lorem arcu, sollicitudin sodales mollis. At dui consequat metus massa duis. Lectus fermentum facilisis quis aliquet eleifend diam molestie ligula. Magna tristique eu sem aliquet tristique. Vehicula facilisi donec, praesent posuere himenaeos curabitur ligula.
 
       Nullam senectus ex posuere fermentum neque aliquet leo dolor quisque. Fringilla posuere gravida massa condimentum ex; convallis sed vitae. Aliquam class arcu imperdiet viverra vulputate litora. Orci sagittis pretium est penatibus potenti curae. Ultricies aptent urna porttitor tempus fames vulputate aenean quam. Quisque risus proin ridiculus rutrum viverra rutrum fames aliquam. Taciti augue imperdiet ad netus efficitur eleifend. Sodales malesuada placerat potenti malesuada metus duis maximus. Mattis luctus imperdiet convallis tortor venenatis.
