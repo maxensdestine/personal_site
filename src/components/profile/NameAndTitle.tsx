@@ -5,8 +5,8 @@ import useTheme from '@mui/material/styles/useTheme';
 import { useTranslation } from 'react-i18next';
 
 import ContactMediaBar from './ContactMediaBar';
-import ImgCoffee from '../../images/me_anywhere/coffee.jpg';
-import ImgCoffeeBW from '../../images/me_anywhere/coffee_bw.jpg';
+import ImgCoffee from '../../resources/images/me_anywhere/coffee.jpg';
+import ImgCoffeeBW from '../../resources/images/me_anywhere/coffee_bw.jpg';
 import '../../translations/Translations';
 
 const Styles = (theme) => ({

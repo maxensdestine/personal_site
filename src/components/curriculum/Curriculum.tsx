@@ -1,10 +1,11 @@
 import React from 'react';
-import Box from '@mui/material/Box';
+import Grid2 from '@mui/material/Grid2';
+import { useTheme } from '@mui/material';
+
 import Experience from './Experience';
 import Education from './Education';
 import Project from './Project';
 import Summary from './Summary';
-import { useTheme } from '@mui/material';
 
 const Styles = (theme) => ({
   root: {
@@ -15,10 +16,13 @@ const Styles = (theme) => ({
 export default function Curriculum(props): React.JSX.Element {
   const theme = useTheme();
   return (
-    <Box {...props}>
-      <Summary paddingBottom={18}/>
+    <Grid2
+      {...props}
+      container
+      gap={18}>
+      <Summary />
       <Experience></Experience>
-      <Education></Education>
       <Project></Project>
-    </Box>);
+      <Education></Education>
+    </Grid2>);
 }
