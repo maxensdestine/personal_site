@@ -5,12 +5,7 @@ import Typography from '@mui/material/Typography/Typography';
 import useTheme from '@mui/material/styles/useTheme';
 import { useTranslation } from 'react-i18next';
 
-import PastXPCard, { PastXP } from './PastXP';
-
-interface PastWorkXP extends PastXP {
-  dateBegin: string;
-  dateEnd: string;
-}
+import PastXPCard from './PastXP';
 
 const Styles = (theme) => ({
   sectionTitle: {
@@ -79,7 +74,6 @@ export default function Experience(props): React.JSX.Element {
         direction='column'
         gap={10}>
         {Array(nbWorkExperiences).fill(0).map((_, i) => (
-
           <ExperienceCard
             key={i}
             pastWorkXP={{

@@ -27,7 +27,7 @@ export default function TemporaryDrawer(props): React.JSX.Element {
   const generalStr: String = t('general');
   const strExperience: string = t('experience');
   const strEducation: string = t('education');
-  const strProjects: string = t('projects-interest');
+  const strProjects: string = t('projects');
   const settingsStr: String = t('settings');
   const navInfos: Array<NavButtonInfo> =
   [

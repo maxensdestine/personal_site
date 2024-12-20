@@ -1,18 +1,107 @@
 import React from 'react';
 import Box from '@mui/material/Box';
+import Grid2 from '@mui/material/Grid2';
+import Typography from '@mui/material/Typography/Typography';
+import useTheme from '@mui/material/styles/useTheme';
+import { useTranslation } from 'react-i18next';
+
+import McGillSeal from '../../resources/images/projects/mcgill_seal.png';
+import PictureRetriever from '../../resources/images/projects/picture_retriever.png';
+import RedYoinker from '../../resources/images/projects/red_yoinker.png';
+import Slick2d from '../../resources/images/projects/slick2d.png';
+
+import PastXPCard from './PastXP';
+
+const Styles = (theme) => ({
+  sectionTitle: {
+    [theme.breakpoints.up('lg')]: {
+      display: 'none'
+    },
+    [theme.breakpoints.down('lg')]: {
+      marginBottom: 7
+    }
+  }
+});
 
 export default function Project(props): React.JSX.Element {
+  const { t, i18n } = useTranslation();
+  const theme = useTheme();
+  const projectImages: Array<string> = [McGillSeal, PictureRetriever, RedYoinker, Slick2d];
+  const strExperience: String = t('projects');
+
+  function ProjectCard(props): React.JSX.Element {
+    const { pastProjectXP, ...rest } = props;
+
+    function ProjectImage(props): React.JSX.Element {
+      return (
+        <Box
+          {...props}
+          paddingTop={{ xs: 0, sm: 0.4 }}
+          width='100%'
+          height='100%'>
+          <img
+            style={{ borderRadius: '10px' }}
+            width='100%'
+            height='100%'
+            src={pastProjectXP.image}
+            alt={pastProjectXP.imageAlt}
+          />
+        </Box>
+      );
+    }
+
+    return (
+      <Grid2
+        {...rest}
+        container
+        flexDirection={{ xs: 'column-reverse', sm: 'row' }}
+        gap={{ xs: 3, sm: '3.9vw', lg: 3 }}>
+        <Grid2
+          width={{xs: '200px', sm: 'calc(109px + 5.1vw)', lg: '135px'}}
+          height={{xs: '112.5px', sm: 'calc(61.3125px + (5.1vw * 9/16))', lg: '76px'}}>
+          <ProjectImage />
+        </Grid2>
+        <Grid2 size='grow'>
+          <PastXPCard pastXP={pastProjectXP} />
+        </Grid2>
+      </Grid2>
+    );
+  }
+
+  function pastXPToProjectXP(projectImage, i) {
+    const title: string = t('past-project-title-' + i);
+    let location: string | null = null;
+    if (i18n.exists('past-project-location-' + i))
+      location = t('past-project-location-' + i);
+    return (
+      <ProjectCard
+        key={i}
+        pastProjectXP={{
+          image: projectImage,
+          imageAlt: t('past-project-image-alt') + title,
+          desc: t('past-project-desc-' + i),
+          link: t('past-project-link-' + i),
+          location: location,
+          skills: t('past-project-skills-' + i).split(','),
+          title: title
+        }} />);
+  }
+
   return (
     <Box {...props}>
-      Lorem ipsum odor amet, consectetuer adipiscing elit. Pellentesque augue vivamus eu dictum blandit quam. Tellus integer nullam lorem arcu, sollicitudin sodales mollis. At dui consequat metus massa duis. Lectus fermentum facilisis quis aliquet eleifend diam molestie ligula. Magna tristique eu sem aliquet tristique. Vehicula facilisi donec, praesent posuere himenaeos curabitur ligula.
-
-      Nullam senectus ex posuere fermentum neque aliquet leo dolor quisque. Fringilla posuere gravida massa condimentum ex; convallis sed vitae. Aliquam class arcu imperdiet viverra vulputate litora. Orci sagittis pretium est penatibus potenti curae. Ultricies aptent urna porttitor tempus fames vulputate aenean quam. Quisque risus proin ridiculus rutrum viverra rutrum fames aliquam. Taciti augue imperdiet ad netus efficitur eleifend. Sodales malesuada placerat potenti malesuada metus duis maximus. Mattis luctus imperdiet convallis tortor venenatis.
-
-      Sit vehicula natoque cubilia amet suscipit pellentesque; convallis maecenas. Cubilia efficitur dis ex vitae venenatis pulvinar. Et interdum enim pretium ligula interdum ad morbi. Cras sed nibh urna justo ad? Vulputate semper dui auctor lacus pulvinar nulla turpis. Maecenas montes dui gravida accumsan imperdiet ut sem. Magna vitae donec ornare vestibulum tellus magna habitasse est. Purus massa rutrum id facilisis accumsan ligula. Erat dis etiam felis maximus pellentesque congue nibh.
-
-      Interdum facilisi magna maximus eros, sociosqu vitae. Mus nulla odio placerat ex malesuada inceptos. Tempus lectus ultrices dui nostra facilisi vehicula aenean netus velit. Justo dui bibendum proin massa feugiat himenaeos mi felis. Vehicula cubilia semper blandit ligula ipsum lacus egestas nam. Ornare molestie nec auctor magna senectus gravida penatibus. Conubia malesuada ligula mus; laoreet fusce placerat pellentesque torquent.
-
-      Facilisi sodales mauris duis consequat aenean interdum. Quisque praesent euismod, dignissim ultrices ex egestas porttitor. Ultrices eleifend ac phasellus aptent faucibus proin fusce vestibulum. Urna accumsan dictum facilisi, magnis nulla bibendum? Elit felis odio per duis eu. Parturient egestas consequat ex tincidunt montes, dis fermentum aliquam dapibus. Parturient arcu odio ligula ultricies; eget mus in. Dui pellentesque libero per natoque feugiat etiam primis. Porta ullamcorper dui senectus nisl maximus eu leo. Mauris nisi mattis taciti ornare adipiscing faucibus venenatis?
+      <Typography
+        sx={Styles(theme).sectionTitle}
+        variant='body1'
+        color='primary'
+      >
+        {strExperience.toLocaleUpperCase()}
+      </Typography>
+      <Grid2
+        container
+        direction='column'
+        gap={10}>
+        {projectImages.map(pastXPToProjectXP)}
+      </Grid2>
     </Box>
   );
 }
