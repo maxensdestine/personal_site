@@ -10,10 +10,8 @@ const Styles = (theme) => ({
       display: 'none'
     },
     [theme.breakpoints.down('lg')]: {
-      marginTop: 10,
-      marginBottom: 3,
-      color: 'primary',
-      variant: 'body1'
+      marginTop: 12,
+      marginBottom: 5
     }
   }
 });
@@ -27,7 +25,7 @@ export default function Summary(props): React.JSX.Element {
   const strSummary2: String = t('summary-2');
   const strSummary3: String = t('summary-3');
   return (
-    <Box>
+    <Box {...props}>
       <Typography
       sx={Styles(theme).sectionTitle}
       variant='body1'

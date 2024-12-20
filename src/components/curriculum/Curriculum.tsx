@@ -8,24 +8,15 @@ import { useTheme } from '@mui/material';
 
 const Styles = (theme) => ({
   root: {
-    // display: 'flex',
-    // flexDirection: 'column',
-
-    // [theme.breakpoints.up('lg')]: {
-    //   height: '80vh',
-    //   overflowY: 'scroll'
-    // },
-    // [theme.breakpoints.down('lg')]: {
-    // }
+    flexDirection: 'column'
   }
 });
 
 export default function Curriculum(props): React.JSX.Element {
   const theme = useTheme();
   return (
-    <Box sx={Styles(theme).root}>
-      <Summary>
-      </Summary>
+    <Box {...props}>
+      <Summary paddingBottom={18}/>
       <Experience></Experience>
       <Education></Education>
       <Project></Project>

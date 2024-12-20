@@ -23,6 +23,7 @@ interface NavButtonInfo {
 
 export default function TemporaryDrawer(props): React.JSX.Element {
   const { t, i18n } = useTranslation();
+  const {isOpen, onClose, ...rest} = props;
   const generalStr: String = t('general');
   const strExperience: string = t('experience');
   const strEducation: string = t('education');
@@ -48,7 +49,7 @@ export default function TemporaryDrawer(props): React.JSX.Element {
     >
       <Typography sx={{ m: 1, mb: 1}} variant='h6' color='primary'>{generalStr}</Typography>
       <Divider />
-      <List sx={{ mb: 5 }} onClick={props.onClose}>
+      <List sx={{ mb: 5 }} onClick={onClose}>
         {navInfos.map((info, index) => (
           <ListItem key={index} disablePadding>
           <ListItemButton>
@@ -73,10 +74,10 @@ export default function TemporaryDrawer(props): React.JSX.Element {
   );
 
   return (
-    <div>
-      <Drawer open={props.isOpen} onClose={props.onClose}>
+    <Box {...rest}>
+      <Drawer open={isOpen} onClose={onClose}>
         {DrawerList}
       </Drawer>
-    </div>
+    </Box>
   );
 }
