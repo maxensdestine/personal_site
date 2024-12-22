@@ -5,12 +5,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.mouse-halo-container {
+  width: 1050px;
+  height: 1050px;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  left: var(--mouse-x-safe);
+  top: var(--mouse-y-safe);
+  background-color: transparent;
 }
 
 .mouse-halo {
