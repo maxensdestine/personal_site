@@ -7,17 +7,6 @@ import { useTranslation } from 'react-i18next';
 
 import PastXPCard from './PastXP';
 
-const Styles = (theme) => ({
-  sectionTitle: {
-    [theme.breakpoints.up('lg')]: {
-      display: 'none'
-    },
-    [theme.breakpoints.down('lg')]: {
-      marginBottom: 7
-    }
-  }
-});
-
 export default function Experience(props): React.JSX.Element {
   const { t, i18n } = useTranslation();
   const theme = useTheme();
@@ -25,7 +14,7 @@ export default function Experience(props): React.JSX.Element {
   const strExperience: String = t('experience');
 
   function ExperienceCard(props): React.JSX.Element {
-    const {pastWorkXP, ...rest} = props;
+    const { pastWorkXP, ...rest } = props;
 
     function DateInterval(props): React.JSX.Element {
       return (
@@ -37,6 +26,7 @@ export default function Experience(props): React.JSX.Element {
             fontSize={12}
             fontWeight={600}
             color='secondary'
+            letterSpacing='0.1em'
             whiteSpace='pre'>
             {pastWorkXP.dateBegin.toLocaleUpperCase() + '  —  ' + pastWorkXP.dateEnd.toLocaleUpperCase()}
           </Typography>
@@ -61,32 +51,24 @@ export default function Experience(props): React.JSX.Element {
   }
 
   return (
-    <Box {...props}>
-      <Typography
-        sx={Styles(theme).sectionTitle}
-        variant='body1'
-        color='primary'
-      >
-        {strExperience.toLocaleUpperCase()}
-      </Typography>
-      <Grid2
-        container
-        direction='column'
-        gap={10}>
-        {Array(nbWorkExperiences).fill(0).map((_, i) => (
-          <ExperienceCard
-            key={i}
-            pastWorkXP={{
-              dateBegin: t('past-work-date-begin-' + i),
-              dateEnd: t('past-work-date-end-' + i),
-              desc: t('past-work-desc-' + i),
-              link: t('past-work-link-' + i),
-              location: t('past-work-location-' + i),
-              skills: t('past-work-skills-' + i).split(','),
-              title: t('past-work-title-' + i)
-            }}
-          />))}
-      </Grid2>
-    </Box>
+    <Grid2
+      {...props}
+      container
+      direction='column'
+      gap={10}>
+      {Array(nbWorkExperiences).fill(0).map((_, i) => (
+        <ExperienceCard
+          key={i}
+          pastWorkXP={{
+            dateBegin: t('past-work-date-begin-' + i),
+            dateEnd: t('past-work-date-end-' + i),
+            desc: t('past-work-desc-' + i),
+            link: t('past-work-link-' + i),
+            location: t('past-work-location-' + i),
+            skills: t('past-work-skills-' + i).split(','),
+            title: t('past-work-title-' + i)
+          }}
+        />))}
+    </Grid2>
   );
 }

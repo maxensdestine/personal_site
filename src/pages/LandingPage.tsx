@@ -182,6 +182,9 @@ export default function LandingPage(props): React.JSX.Element {
       secondary: {
         main: '#bbbbbb'
       },
+      info: {
+        main: '#8c8e93'
+      },
       background: {
         default: '#0f172a',
         paper: '#0f1725'
@@ -194,6 +197,9 @@ export default function LandingPage(props): React.JSX.Element {
       },
       secondary: {
         main: '#494e57'
+      },
+      info: {
+        main: '#8b8e94'
       },
       background: {
         default: '#ffffff',
@@ -294,7 +300,7 @@ export default function LandingPage(props): React.JSX.Element {
             </Box>
             <Box sx={Styles(theme).middleSpace}></Box>
             <Box sx={Styles(theme).rightContent}>
-              <Curriculum></Curriculum>
+              <Curriculum paddingBottom={10}/>
             </Box >
           </Box >
         </Box >

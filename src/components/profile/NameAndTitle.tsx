@@ -8,6 +8,7 @@ import ContactMediaBar from './ContactMediaBar';
 import ImgCoffee from '../../resources/images/me_anywhere/coffee.jpg';
 import ImgCoffeeBW from '../../resources/images/me_anywhere/coffee_bw.jpg';
 import '../../translations/Translations';
+import MyStepper from './MyStepper';
 
 const Styles = (theme) => ({
   icon: {
@@ -21,12 +22,21 @@ const Styles = (theme) => ({
     justifyContent: 'flex-start',
   },
   imageBox: {
-    marginBottom: 6,
     [theme.breakpoints.up('lg')]: {
-      maxWidth: '100%'
+      maxWidth: '100%',
+      marginBottom: 6,
     },
     [theme.breakpoints.down('lg')]: {
-      maxWidth: '1200px'
+      maxWidth: '1200px',
+      marginBottom: 6
+    }
+  },
+  stepperBox: {
+    justifyContent: 'flex-start',
+    width: '100%',
+    marginBottom: 8,
+    [theme.breakpoints.down('lg')]: {
+      display: 'none'
     }
   }
 });
@@ -40,6 +50,7 @@ export default function NameAndTitle(props): React.JSX.Element {
   const strJobDesc: string = t('job-desc');
   const strImageAlt: string = t('image-maxens-alt');
   const image = theme.palette.mode === 'dark' ? ImgCoffeeBW : ImgCoffee;
+  const steps: Array<string> = [t('about'), t('experience'), t('projects')];
 
   return (
     <Box sx={Styles(theme).root} {...props}>
@@ -60,7 +71,7 @@ export default function NameAndTitle(props): React.JSX.Element {
         variant='body1'
         color='secondary'
         maxWidth='350px'
-        marginBottom={8}>
+        marginBottom={6}>
         {strJobDesc}
       </Typography>
       <Box sx={Styles(theme).imageBox}>
@@ -71,8 +82,11 @@ export default function NameAndTitle(props): React.JSX.Element {
           alt={strImageAlt}
         />
       </Box>
+      <Box sx={Styles(theme).stepperBox}>
+        <MyStepper />
+      </Box>
       <Box flexGrow='1'></Box>
-      <ContactMediaBar paddingBottom={4} />
+      <ContactMediaBar paddingBottom={{ sm: 0, lg: 4 }} />
     </Box>
   );
 }

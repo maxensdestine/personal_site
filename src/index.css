@@ -23,3 +23,5 @@ code {
   left: var(--mouse-x);
   top: var(--mouse-y);
 }
+
+html { scroll-behavior: smooth; }

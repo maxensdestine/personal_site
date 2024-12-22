@@ -4,18 +4,6 @@ import Typography from '@mui/material/Typography/Typography';
 import useTheme from '@mui/material/styles/useTheme';
 import { useTranslation } from 'react-i18next';
 
-const Styles = (theme) => ({
-  sectionTitle: {
-    [theme.breakpoints.up('lg')]: {
-      display: 'none'
-    },
-    [theme.breakpoints.down('lg')]: {
-      marginTop: 12,
-      marginBottom: 5
-    }
-  }
-});
-
 export default function Summary(props): React.JSX.Element {
   const { t, i18n } = useTranslation();
   const theme = useTheme();
@@ -26,12 +14,6 @@ export default function Summary(props): React.JSX.Element {
   const strSummary3: String = t('summary-3');
   return (
     <Box {...props}>
-      <Typography
-      sx={Styles(theme).sectionTitle}
-      variant='body1'
-      color='primary'>
-        {strAbout}
-      </Typography>
       <Typography variant='body1' color='secondary'>
         {strSummary0}
       </Typography>

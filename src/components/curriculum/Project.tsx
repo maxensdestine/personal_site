@@ -5,29 +5,17 @@ import Typography from '@mui/material/Typography/Typography';
 import useTheme from '@mui/material/styles/useTheme';
 import { useTranslation } from 'react-i18next';
 
+import PastXPCard from './PastXP';
 import McGillSeal from '../../resources/images/projects/mcgill_seal.png';
 import PictureRetriever from '../../resources/images/projects/picture_retriever.png';
 import RedYoinker from '../../resources/images/projects/red_yoinker.png';
 import Slick2d from '../../resources/images/projects/slick2d.png';
 
-import PastXPCard from './PastXP';
-
-const Styles = (theme) => ({
-  sectionTitle: {
-    [theme.breakpoints.up('lg')]: {
-      display: 'none'
-    },
-    [theme.breakpoints.down('lg')]: {
-      marginBottom: 7
-    }
-  }
-});
-
 export default function Project(props): React.JSX.Element {
   const { t, i18n } = useTranslation();
   const theme = useTheme();
   const projectImages: Array<string> = [McGillSeal, PictureRetriever, RedYoinker, Slick2d];
-  const strExperience: String = t('projects');
+  const strProjects: String = t('projects');
 
   function ProjectCard(props): React.JSX.Element {
     const { pastProjectXP, ...rest } = props;
@@ -57,8 +45,8 @@ export default function Project(props): React.JSX.Element {
         flexDirection={{ xs: 'column-reverse', sm: 'row' }}
         gap={{ xs: 3, sm: '3.9vw', lg: 3 }}>
         <Grid2
-          width={{xs: '200px', sm: 'calc(109px + 5.1vw)', lg: '135px'}}
-          height={{xs: '112.5px', sm: 'calc(61.3125px + (5.1vw * 9/16))', lg: '76px'}}>
+          width={{ xs: '200px', sm: 'calc(109px + 5.1vw)', lg: '135px' }}
+          height={{ xs: '112.5px', sm: 'calc(61.3125px + (5.1vw * 9/16))', lg: '76px' }}>
           <ProjectImage />
         </Grid2>
         <Grid2 size='grow'>
@@ -88,20 +76,11 @@ export default function Project(props): React.JSX.Element {
   }
 
   return (
-    <Box {...props}>
-      <Typography
-        sx={Styles(theme).sectionTitle}
-        variant='body1'
-        color='primary'
-      >
-        {strExperience.toLocaleUpperCase()}
-      </Typography>
-      <Grid2
-        container
-        direction='column'
-        gap={10}>
-        {projectImages.map(pastXPToProjectXP)}
-      </Grid2>
-    </Box>
+    <Grid2
+      container
+      direction='column'
+      gap={10}>
+      {projectImages.map(pastXPToProjectXP)}
+    </Grid2>
   );
 }
