@@ -256,12 +256,17 @@ export default function LandingPage(props): React.JSX.Element {
   return (
     <AppearanceContext.Provider value={{ value: appearanceRef.current, setValue: setAppearance }}>
       <ThemeProvider theme={theme}>
-        <Box sx={Styles(theme).background} id={backgroundID} {...props}>
-          <Box
-            id='halo'
+      <Box
+            id='halo-container'
             sx={Styles(theme).halo}
-            className='mouse-halo'>
+            className='mouse-halo-container'>
+            <Box
+              id='halo'
+              sx={Styles(theme).halo}
+              className='mouse-halo'>
+            </Box>
           </Box>
+        <Box sx={Styles(theme).background} id={backgroundID} {...props}>
           <TemporaryDrawer isOpen={isOpen} onClose={toggleDrawer(false)}>
           </TemporaryDrawer>
           <Box sx={Styles(theme).iconBox}>
@@ -300,7 +305,7 @@ export default function LandingPage(props): React.JSX.Element {
             </Box>
             <Box sx={Styles(theme).middleSpace}></Box>
             <Box sx={Styles(theme).rightContent}>
-              <Curriculum paddingBottom={10}/>
+              <Curriculum paddingBottom={10} />
             </Box >
           </Box >
         </Box >
