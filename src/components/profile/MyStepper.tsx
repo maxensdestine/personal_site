@@ -50,9 +50,9 @@ export default function MyStepper(props): React.JSX.Element {
       direction='row'>
       {steps.map((title, i) => (
         <Grid2
+          key={i}
           size={6} >
           <Link
-            key={i}
             sx={Styles.link}
             href={'#' + (i == 0 ? 'top' : title)}>
             <Grid2
@@ -71,7 +71,7 @@ export default function MyStepper(props): React.JSX.Element {
                 fontSize={12}
                 fontWeight='570'
                 letterSpacing='0.1em'>
-                {title.toLocaleUpperCase()}
+                {t(title).toLocaleUpperCase()}
               </Typography>
             </Grid2>
           </Link>

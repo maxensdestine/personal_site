@@ -4,6 +4,8 @@ import Box from '@mui/material/Box';
 import Business from '@mui/icons-material/Business';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
+import LightBulb from '@mui/icons-material/Lightbulb';
+import Link from '@mui/material/Link/Link';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -23,49 +25,60 @@ interface NavButtonInfo {
 
 export default function TemporaryDrawer(props): React.JSX.Element {
   const { t, i18n } = useTranslation();
-  const {isOpen, onClose, ...rest} = props;
+  const { isOpen, onClose, ...rest } = props;
   const generalStr: String = t('general');
-  const strExperience: string = t('experience');
-  const strEducation: string = t('education');
-  const strProjects: string = t('projects');
+  const strAbout: string = t('about');
+  const strExperience: string = 'experience';
+  const strEducation: string = 'education';
+  const strProjects: string = 'projects';
   const settingsStr: String = t('settings');
   const navInfos: Array<NavButtonInfo> =
-  [
-    {
-      icon: <Business color='primary' />, title: strExperience
-    },
-    {
-      icon: <School color='primary' />, title: strEducation
-    },
-    {
-      icon: <AutoAwesome color='primary' />, title: strProjects
-    }
-  ]
+    [
+      {
+        icon: <LightBulb color='primary' />, title: strAbout
+      },
+      {
+        icon: <Business color='primary' />, title: strExperience
+      },
+      {
+        icon: <School color='primary' />, title: strEducation
+      },
+      {
+        icon: <AutoAwesome color='primary' />, title: strProjects
+      }
+    ]
+
+  function GeneralNavigation(props): React.JSX.Element {
+    return (
+      <Box {...props}>
+        <Typography sx={{ m: 1, mb: 1 }} variant='h6' color='primary'>{generalStr}</Typography>
+        <Divider />
+        <List sx={{ mb: 5 }} onClick={onClose}>
+          {navInfos.map((info, index) => (
+            <ListItem key={index} disablePadding>
+              <ListItemButton
+                href={'#' + (index == 0 ? 'top' : info.title)}>
+                <ListItemIcon>
+                  {info.icon}
+                </ListItemIcon>
+                <ListItemText primary={
+                  <Typography variant='body1' color='primary'>
+                    {t(info.title)}
+                  </Typography>}
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+    )
+  }
 
   const DrawerList = (
     <Box
       role='presentation'
-      m={1.5}
-    >
-      <Typography sx={{ m: 1, mb: 1}} variant='h6' color='primary'>{generalStr}</Typography>
-      <Divider />
-      <List sx={{ mb: 5 }} onClick={onClose}>
-        {navInfos.map((info, index) => (
-          <ListItem key={index} disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              {info.icon}
-            </ListItemIcon>
-            <ListItemText primary={
-              <Typography variant='body1' color='primary'>
-                {info.title}
-              </Typography>}
-            />
-          </ListItemButton>
-        </ListItem>
-        ))}
-      </List>
-
+      m={1.5}>
+      <GeneralNavigation display={{sm: 'block', lg: 'none'}}/>
       <Typography sx={{ m: 1 }} variant='h6' color='primary'>{settingsStr}</Typography>
       <Divider sx={{ mb: { xs: 4, sm: 4, md: 0, lg: 0 } }} />
       <AppearanceSelector sx={{ mb: { xs: 4.5, sm: 4.5, md: 1, lg: 1 }, width: '100%' }} />
