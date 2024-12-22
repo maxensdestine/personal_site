@@ -39,7 +39,7 @@ i18n
           'light-mode-al': 'Use light mode',
           'system-mode': 'System',
           'system-mode-al': 'Use system mode',
-          'about': 'ABOUT',
+          'about': 'About',
           'summary-0':
             'I am a developer who enjoys working on projects that are meaningful and \
             have a tangible, positive impact on people and society. My passion is \
@@ -142,7 +142,7 @@ i18n
           'light-mode-al': 'Utiliser le mode clair',
           'system-mode': 'Système',
           'system-mode-al': 'Utiliser le mode du système',
-          'about': 'À PROPOS',
+          'about': 'À propos',
           'summary-0':
             'Je suis un développeur qui aime travailler sur des projets qui ont un \
             impact réel et significatif sur la société. Ma passion, c’est la \

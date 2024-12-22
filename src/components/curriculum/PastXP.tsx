@@ -25,7 +25,7 @@ const Styles = (theme) => ({
   },
   descList: {
     listStyleType: 'circle',
-    color: theme.palette.secondary.main,
+    color: 'secondary.main',
     paddingLeft: '16px'
   },
   cardTitle: {
