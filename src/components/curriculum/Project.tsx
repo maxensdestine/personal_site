@@ -1,8 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Grid2 from '@mui/material/Grid2';
-import Typography from '@mui/material/Typography/Typography';
-import useTheme from '@mui/material/styles/useTheme';
 import { useTranslation } from 'react-i18next';
 
 import PastXPCard from './PastXP';
@@ -13,9 +11,7 @@ import Slick2d from '../../resources/images/projects/slick2d.png';
 
 export default function Project(props): React.JSX.Element {
   const { t, i18n } = useTranslation();
-  const theme = useTheme();
   const projectImages: Array<string> = [McGillSeal, PictureRetriever, RedYoinker, Slick2d];
-  const strProjects: String = t('projects');
 
   function ProjectCard(props): React.JSX.Element {
     const { pastProjectXP, ...rest } = props;

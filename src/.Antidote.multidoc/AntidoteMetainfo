@@ -1,0 +1,8 @@
+
+{
+    "encodage": null,
+    "filtreDocuments": {
+        "chainesExclues": "",
+        "exclureTypesDocumentsInconnus": true
+    }
+}

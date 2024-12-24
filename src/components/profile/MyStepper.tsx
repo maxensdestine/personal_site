@@ -24,7 +24,7 @@ const Styles = {
     },
     '&:hover > div > span': {
       width: '60px',
-      backgroundColor: 'text.primary'
+      backgroundColor: 'primary.main'
     }
   }
 };

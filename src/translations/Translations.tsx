@@ -125,6 +125,12 @@ i18n
           'education-title-1': 'DEC Computer Science and Mathematics',
           'education-desc-1': '2017 - 2019  |  Bois-de-Boulogne college',
           'education-image-alt': 'Logo of the institution ',
+          'downloads': 'Downloads',
+          'end-words': 
+          'Inspired by [Britanny Chiang’s website], designed with [Penpot] and \
+          coded with [Visual Studio Code] by Maxens Destiné. Built with [ReactJS] \
+          and [Material UI], and deployed with [GitHub Pages]. \
+          All text is set in the [Inter] font.'
         },
       },
       fr: {
@@ -226,8 +232,8 @@ i18n
           'past-project-link-2': 'https://github.com/maxensdestine/Red-Yoinker',
           'past-project-title-3': 'Jeu Slick2d',
           'past-project-desc-3':
-            'Jeu de plateforme en deux dimensions avec des ennemis variés et un système de points. \
-            Créé à l’aide de la librairie Slick2d et du modèle de conception MVC',
+            'Jeu de plateforme en deux dimensions avec des ennemis variés et un système de \
+            points. Créé à l’aide de la librairie Slick2d et du modèle de conception MVC',
           'past-project-skills-3': 'Java',
           'past-project-link-3': 'https://github.com/maxensdestine/JavaPlatformGame',
           'past-project-image-alt': 'Image du projet ',
@@ -236,6 +242,12 @@ i18n
           'education-title-1': 'DEC Science informatique et mathématique',
           'education-desc-1': '2017 - 2019  |  Cégep Bois-de-Boulogne',
           'education-image-alt': 'Logo de l’institution ',
+          'downloads': 'Téléchargements',
+          'end-words': 
+          'Inspiré du [site web de Britanny Chiang], esquisses conçues avec [Penpot] et \
+          code écrit avec [Visual Studio Code] par Maxens Destiné. Construit \
+          avec [ReactJS] et [Material UI], et déployé avec [GitHub Pages]. \
+          Le texte utilise la police [Inter].'
         },
       },
     },

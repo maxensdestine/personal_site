@@ -5,10 +5,10 @@ import useTheme from '@mui/material/styles/useTheme';
 import { useTranslation } from 'react-i18next';
 
 import ContactMediaBar from './ContactMediaBar';
+import MyStepper from './MyStepper';
 import ImgCoffee from '../../resources/images/me_anywhere/coffee.jpg';
 import ImgCoffeeBW from '../../resources/images/me_anywhere/coffee_bw.jpg';
 import '../../translations/Translations';
-import MyStepper from './MyStepper';
 
 const Styles = (theme) => ({
   icon: {
