@@ -24,8 +24,8 @@ const Styles = (theme) => ({
     },
   },
   anchorSeparator: {
-    paddingTop: 8,
-    paddingBottom: 8
+    paddingTop: 7,
+    paddingBottom: 7
   },
   sectionHeader: {
     paddingBottom: 6,

@@ -25,12 +25,10 @@ export default function Project(props): React.JSX.Element {
         <Box
           {...props}
           paddingTop={{ xs: 0, sm: 0.4 }}
-          width='100%'
-          height='100%'>
+          width='100%'>
           <img
             style={{ borderRadius: '10px' }}
             width='100%'
-            height='100%'
             src={pastProjectXP.image}
             alt={pastProjectXP.imageAlt}
           />
@@ -43,10 +41,9 @@ export default function Project(props): React.JSX.Element {
         {...rest}
         container
         flexDirection={{ xs: 'column-reverse', sm: 'row' }}
-        gap={{ xs: 3, sm: '3.9vw', lg: 3 }}>
+        gap={{ xs: 3, sm: '9vw', lg: 6 }}>
         <Grid2
-          width={{ xs: '200px', sm: 'calc(109px + 5.1vw)', lg: '135px' }}
-          height={{ xs: '112.5px', sm: 'calc(61.3125px + (5.1vw * 9/16))', lg: '76px' }}>
+          width={{ xs: '200px', sm: '200px', lg: '135px' }}>
           <ProjectImage />
         </Grid2>
         <Grid2 size='grow'>
