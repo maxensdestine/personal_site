@@ -12,4 +12,5 @@ export default defineConfig({
       include: '**/*.svg?react',
     }),
   ],
+  base: 'https://maxensdestine.github.io/personal_site/'
 });

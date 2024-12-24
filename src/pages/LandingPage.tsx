@@ -137,9 +137,12 @@ export default function LandingPage(props): React.JSX.Element {
   }, [appearance]);
 
   useEffect(() => {
+    const bgColor: string = Styles(theme).background.bgcolor;
     removeMouseGlow(selectorBackground);
-    if (theme.palette.mode == 'dark')
-      addMouseGlow(selectorBackground, Styles(theme).background.bgcolor);
+    if (theme.palette.mode == 'dark') {
+      addMouseGlow(selectorBackground, bgColor);
+    }
+    document.body.style.setProperty('--bg-color', bgColor);
     return () => { removeMouseGlow(selectorBackground) };
   }, [theme]);
 

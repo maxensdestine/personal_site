@@ -110,7 +110,7 @@ export default function TemporaryDrawer(props): React.JSX.Element {
           {resumes.map((fileName, index) => (
             <ListItem key={index} disablePadding>
               <ListItemButton
-                href={'/resumes/' + fileName}
+                href={'resumes/' + fileName}
                 download={fileName}>
                 <ResumeFileName fileName={fileName} />
               </ListItemButton>
