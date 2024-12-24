@@ -30,7 +30,7 @@ function mouseMoveEvent(bgColor: string, elementBackground: HTMLElement) {
     }
     elementHalo.style.setProperty('--mouse-y', posY + 'px');
     elementHalo.style.setProperty('--mouse-x', posX + 'px');
-    elementHalo.style.background = 'radial-gradient(rgba(29, 78, 216, 0.15), transparent 65%)';
+    elementHalo.style.background = 'radial-gradient(rgba(19, 52, 141, 0.15), transparent 65%)';
   }
 }
 
