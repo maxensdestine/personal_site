@@ -51,7 +51,7 @@ function GeneralToggleSelector(properties: ToggleSelectorProp) {
   };
   return (
     <Box>
-      <Box sx={{ display: { xs: 'none', sm: 'none', md: 'inline', lg: 'inline' } }}>
+      <Box sx={{ display: { xs: 'none', sm: 'inline'} }}>
         <Typography sx={{ m: 1, mt: 3 }} variant='body2' color='secondary'>{info.title}</Typography>
         <ToggleButtonGroup
           value={info.value}
@@ -69,7 +69,7 @@ function GeneralToggleSelector(properties: ToggleSelectorProp) {
           ))}
         </ToggleButtonGroup>
       </Box>
-      <Box sx={{ display: { xs: 'inline', sm: 'inline', md: 'none', lg: 'none' } }}>
+      <Box sx={{ display: { xs: 'inline', sm: 'none'} }}>
         <FormControl fullWidth>
           <InputLabel id={info.title + '-label'}>{info.title}</InputLabel>
           <Select

@@ -4,8 +4,9 @@ import Typography from '@mui/material/Typography/Typography';
 import { useTheme } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-import Experience from './Experience';
 import Education from './Education';
+import EndWords from './EndWords';
+import Experience from './Experience';
 import Project from './Project';
 import Summary from './Summary';
 
@@ -39,7 +40,7 @@ export default function Curriculum(props): React.JSX.Element {
   const { t, i18n } = useTranslation();
   const theme = useTheme();
   const idSuffix: string = '-anchor';
-  const sections =
+  const sections: Section[] =
     [
       { content: <Summary />, id: 'about' },
       { content: <Experience />, id: 'experience' },
@@ -74,5 +75,8 @@ export default function Curriculum(props): React.JSX.Element {
           {section.content}
         </Box>
       ))}
+      <EndWords
+      paddingTop={20}
+      maxWidth='430px'/>
     </Box>);
 }

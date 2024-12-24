@@ -1,6 +1,5 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
 import Grid2 from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography/Typography';
 import { useTranslation } from 'react-i18next';
