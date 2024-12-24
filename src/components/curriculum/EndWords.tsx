@@ -92,7 +92,8 @@ export default function EndWords(props): React.JSX.Element {
         <TypographyFromString
           key={index}
           endWord={endWord}
-          fontSize={14}/>
+          fontSize={13.5}
+          fontWeight='420'/>
       ))}
     </Box>);
 }
