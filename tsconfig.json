@@ -1,6 +1,16 @@
 {
-    "compilerOptions": {
-        "esModuleInterop": true,
-        "jsx": "react"
-    }
+  "compilerOptions":
+  {
+    "esModuleInterop": true,
+    "types": ["vite/client", "vite-plugin-svgr/client"],
+    "target": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "noFallthroughCasesInSwitch": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  }
 }
