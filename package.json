@@ -18,8 +18,9 @@
     "react-dom": "^18.3.1",
     "react-headroom": "^3.2.1",
     "react-i18next": "^15.1.1",
+    "svgo": "^3.3.2",
     "tinycolor2": "^1.6.0",
-    "typescript": "~4",
+    "typescript": "^5.7.2",
     "web-vitals": "^4.2.4"
   },
   "scripts": {
@@ -50,9 +51,12 @@
     ]
   },
   "devDependencies": {
+    "@types/node": "^22.10.2",
     "@types/react": "^18.3.12",
     "@vitejs/plugin-react": "^4.3.4",
     "gh-pages": "^6.2.0",
+    "prettier": "^3.4.2",
+    "rollup": "^4.29.1",
     "vite": "^6.0.5",
     "vite-plugin-svgr": "^4.3.0",
     "vite-tsconfig-paths": "^5.1.4"
