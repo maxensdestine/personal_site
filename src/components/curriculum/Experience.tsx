@@ -2,16 +2,13 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Grid2 from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography/Typography';
-import useTheme from '@mui/material/styles/useTheme';
 import { useTranslation } from 'react-i18next';
 
 import PastXPCard from './PastXP';
 
 export default function Experience(props): React.JSX.Element {
   const { t, i18n } = useTranslation();
-  const theme = useTheme();
   const nbWorkExperiences = 3;
-  const strExperience: String = t('experience');
 
   function ExperienceCard(props): React.JSX.Element {
     const { pastWorkXP, ...rest } = props;
