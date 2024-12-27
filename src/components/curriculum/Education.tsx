@@ -1,5 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
 import Grid2 from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography/Typography';
 import { useTranslation } from 'react-i18next';
@@ -46,6 +47,7 @@ export default function Education(props): React.JSX.Element {
         </Typography>
         <Typography
           variant='body1'
+          fontSize={14.5}
           color='secondary'
           whiteSpace='pre-wrap'>
           {desc}
@@ -65,7 +67,7 @@ export default function Education(props): React.JSX.Element {
         key={index}
         container
         gap={{ xs: 3, sm: 6, lg: 6 }}>
-        <Grid2 width={{ xs: '80px', sm: '100px', lg: '85px' }}>
+        <Grid2 width={{ xs: '68px', sm: '85px', lg: '72px' }}>
           <EducationImage
             image={image}
             imageAlt={imageAlt} />
@@ -84,12 +86,16 @@ export default function Education(props): React.JSX.Element {
     <Grid2
       {...props}
       container
-      spacing={5}>
-      {institutionImages.map((_, index) => (
-        <Grid2 key={index} size={11}>
-          <EducationCard index={index} />
-        </Grid2>
-      ))}
+      spacing={2.5}>
+      <Grid2 size={11}>
+        <EducationCard index={0} />
+      </Grid2>
+      <Grid2 width={{ xs: '68px', sm: '85px', lg: '72px' }} >
+        <Divider />
+      </Grid2>
+      <Grid2 size={11}>
+        <EducationCard index={1} />
+      </Grid2>
     </Grid2>
   );
 }
