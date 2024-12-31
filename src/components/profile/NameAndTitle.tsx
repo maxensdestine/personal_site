@@ -21,10 +21,19 @@ const Styles = (theme) => ({
     flexDirection: 'column',
     justifyContent: 'flex-start',
   },
-  imageBox: {
+  imageBoxLandscape: {
     marginBottom: '4.9vh',
     [theme.breakpoints.up('lg')]: {
       maxWidth: '100%'
+    },
+    [theme.breakpoints.down('lg')]: {
+      display: 'none'
+    }
+  },
+  imageBoxPortrait: {
+    marginBottom: '4.9vh',
+    [theme.breakpoints.up('lg')]: {
+      display: 'none'
     },
     [theme.breakpoints.down('lg')]: {
       maxWidth: '1200px'
@@ -49,7 +58,35 @@ export default function NameAndTitle(props): React.JSX.Element {
   const strJobDesc: string = t('job-desc');
   const strImageAlt: string = t('image-maxens-alt');
   const image = theme.palette.mode === 'dark' ? ImgCoffeeBW : ImgCoffee;
-  const steps: Array<string> = [t('about'), t('experience'), t('projects')];
+
+  function ProfileImage(): React.JSX.Element {
+    return (
+      <Box>
+        <Box sx={Styles(theme).imageBoxLandscape}>
+          <img
+            style=
+            {{
+              borderRadius: '10px',
+              width: 'auto',
+              height: '20vh'
+            }}
+            className='profile-img'
+            src={image}
+            alt={strImageAlt}
+          />
+        </Box>
+        <Box sx={Styles(theme).imageBoxPortrait}>
+          <img
+            style={{ borderRadius: '10px' }}
+            width='100%'
+            className='profile-img'
+            src={image}
+            alt={strImageAlt}
+          />
+        </Box>
+      </Box>
+    );
+  }
 
   return (
     <Box sx={Styles(theme).root} {...props}>
@@ -73,15 +110,7 @@ export default function NameAndTitle(props): React.JSX.Element {
         marginBottom='4.9vh'>
         {strJobDesc}
       </Typography>
-      <Box sx={Styles(theme).imageBox}>
-        <img
-          style={{ borderRadius: '10px' }}
-          width='100%'
-          className='profile-img'
-          src={image}
-          alt={strImageAlt}
-        />
-      </Box>
+      <ProfileImage />
       <Box sx={Styles(theme).stepperBox}>
         <MyStepper />
       </Box>
