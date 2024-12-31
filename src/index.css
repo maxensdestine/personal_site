@@ -36,3 +36,9 @@ code {
 }
 
 html { scroll-behavior: smooth; }
+
+.profile-img {
+  @media (min-width: 1200px) and (max-height: 660px) {
+    display: none;
+  }
+}
