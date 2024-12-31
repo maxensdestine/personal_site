@@ -22,19 +22,18 @@ const Styles = (theme) => ({
     justifyContent: 'flex-start',
   },
   imageBox: {
+    marginBottom: '4.9vh',
     [theme.breakpoints.up('lg')]: {
-      maxWidth: '100%',
-      marginBottom: 6,
+      maxWidth: '100%'
     },
     [theme.breakpoints.down('lg')]: {
-      maxWidth: '1200px',
-      marginBottom: 6
+      maxWidth: '1200px'
     }
   },
   stepperBox: {
     justifyContent: 'flex-start',
     width: '100%',
-    marginBottom: 8,
+    marginBottom: '7vh',
     [theme.breakpoints.down('lg')]: {
       display: 'none'
     }
@@ -58,26 +57,27 @@ export default function NameAndTitle(props): React.JSX.Element {
         fontWeight='bold'
         variant='h3'
         color='primary'
-        marginBottom={1}>
+        marginBottom='0.5vh'>
         {strFirstName} {strLastName}
       </Typography>
       <Typography
         variant='h5'
         color='primary'
-        marginBottom={3}>
+        marginBottom='2.2vh'>
         {strJobTitle}
       </Typography>
       <Typography
         variant='body1'
         color='secondary'
         maxWidth='350px'
-        marginBottom={6}>
+        marginBottom='4.9vh'>
         {strJobDesc}
       </Typography>
       <Box sx={Styles(theme).imageBox}>
         <img
           style={{ borderRadius: '10px' }}
           width='100%'
+          className='profile-img'
           src={image}
           alt={strImageAlt}
         />
@@ -86,7 +86,7 @@ export default function NameAndTitle(props): React.JSX.Element {
         <MyStepper />
       </Box>
       <Box flexGrow='1'></Box>
-      <ContactMediaBar paddingBottom={{ sm: 0, lg: 4 }} />
+      <ContactMediaBar paddingBottom={{ sm: 0, lg: '3.2vh' }} />
     </Box>
   );
 }

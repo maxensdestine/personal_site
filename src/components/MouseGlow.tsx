@@ -14,14 +14,14 @@ function mouseMoveEvent(bgColor: string, elementBackground: HTMLElement) {
     let posY = e.pageY - height / 2;
     const posXSafe = posX > maxSafePosX ? maxSafePosX : posX;
     const posYSafe = posY > maxSafePosY ? maxSafePosY : posY;
-    if (posY > maxSafePosY) {
+    if (posY >= maxSafePosY) {
       elementHaloContainer.style.setProperty('--mouse-y-safe', posYSafe + 'px');
       posY = posY - maxSafePosY;
     } else {
       elementHaloContainer.style.setProperty('--mouse-y-safe', posY + 'px');
       posY = 0;
     }
-    if (posX > maxSafePosX) {
+    if (posX >= maxSafePosX) {
       elementHaloContainer.style.setProperty('--mouse-x-safe', posXSafe + 'px');
       posX = posX - maxSafePosX;
     } else {
