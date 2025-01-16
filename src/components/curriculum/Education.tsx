@@ -42,12 +42,13 @@ export default function Education(props): React.JSX.Element {
           variant='body1'
           display='block'
           color='primary'
-          whiteSpace='pre-wrap'>
+          whiteSpace='pre-wrap'
+          paddingBottom={0.5}>
           {title}
         </Typography>
         <Typography
           variant='body1'
-          fontSize={14.5}
+          fontSize={14.9}
           color='secondary'
           whiteSpace='pre-wrap'>
           {desc}
